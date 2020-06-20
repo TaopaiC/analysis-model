@@ -1,0 +1,66 @@
+[
+  {
+    "Target": "ubuntu (ubuntu 20.04)",
+    "Type": "ubuntu",
+    "Vulnerabilities": [
+      {
+        "VulnerabilityID": "CVE-2019-18276",
+        "PkgName": "bash",
+        "InstalledVersion": "5.0-6ubuntu1",
+        "Layer": {
+          "Digest": "sha256:a4a2a29f9ba48efd3d2075f395538b2eec56fb1bedfb7aecf5e54174446f9e2a",
+          "DiffID": "sha256:e1c75a5e0bfa094c407e411eb6cc8a159ee8b060cbd0398f1693978b4af9af10"
+        },
+        "SeveritySource": "ubuntu",
+        "Title": "bash: when effective UID is not equal to its real UID the saved UID is not dropped",
+        "Description": "An issue was discovered in disable_priv_mode in shell.c in GNU Bash through 5.0 patch 11. By default, if Bash is run with its effective UID not equal to its real UID, it will drop privileges by setting its effective UID to its real UID. However, it does so incorrectly. On Linux and other systems that support \"saved UID\" functionality, the saved UID is not dropped. An attacker with command execution in the shell can use \"enable -f\" for runtime loading of a new builtin, which can be a shared object that calls setuid() and therefore regains privileges. However, binaries running with an effective UID of 0 are unaffected.",
+        "Severity": "LOW",
+        "VendorVectors": {
+          "nvd": {
+            "v2": "AV:L/AC:L/Au:N/C:C/I:C/A:C",
+            "v3": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "redhat": {
+            "v3": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+          }
+        },
+        "References": [
+          "http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276",
+          "https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff",
+          "https://security.netapp.com/advisory/ntap-20200430-0003/",
+          "https://www.youtube.com/watch?v=-wGtxJ8opa8"
+        ]
+      },
+      {
+        "VulnerabilityID": "CVE-2016-2781",
+        "PkgName": "coreutils",
+        "InstalledVersion": "8.30-3ubuntu2",
+        "Layer": {
+          "Digest": "sha256:a4a2a29f9ba48efd3d2075f395538b2eec56fb1bedfb7aecf5e54174446f9e2a",
+          "DiffID": "sha256:e1c75a5e0bfa094c407e411eb6cc8a159ee8b060cbd0398f1693978b4af9af10"
+        },
+        "SeveritySource": "ubuntu",
+        "Title": "coreutils: Non-privileged session can escape to the parent session in chroot",
+        "Description": "chroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal's input buffer.",
+        "Severity": "LOW",
+        "VendorVectors": {
+          "nvd": {
+            "v2": "AV:L/AC:L/Au:N/C:N/I:P/A:N",
+            "v3": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N"
+          },
+          "redhat": {
+            "v2": "AV:L/AC:H/Au:N/C:C/I:C/A:C",
+            "v3": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H"
+          }
+        },
+        "References": [
+          "http://seclists.org/oss-sec/2016/q1/452",
+          "http://www.openwall.com/lists/oss-security/2016/02/28/2",
+          "http://www.openwall.com/lists/oss-security/2016/02/28/3",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2781"
+        ]
+      }
+    ]
+  }
+]
